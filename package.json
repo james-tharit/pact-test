@@ -1,0 +1,17 @@
+{
+  "name": "pact-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test test/consumer.test.js && node --test test/provider.test.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@pact-foundation/pact": "^17.1.4"
+  }
+}
