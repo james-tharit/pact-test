@@ -10,5 +10,6 @@ export async function getHealth(baseUrl) {
   const res = await fetch(`${baseUrl}/health`, {
     headers: { Accept: 'application/json' },
   });
+
   return res.json();
 }

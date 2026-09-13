@@ -1,11 +1,25 @@
 import { createServer } from 'node:http';
+import { readFile } from 'node:fs/promises';
 
 // ponytail: in-memory fixture, swap for a real store when there is one
 const products = new Map([
   ['1', { id: '1', name: 'Widget', price: 9.99 }],
 ]);
 
-export const server = createServer((req, res) => {
+// the browser reuses client.js, so it is served alongside the page
+const assets = {
+  '/': ['index.html', 'text/html'],
+  '/client.js': ['client.js', 'text/javascript'],
+};
+
+export const server = createServer(async (req, res) => {
+  const asset = assets[req.url];
+  if (asset) {
+    const [file, type] = asset;
+    res.writeHead(200, { 'content-type': type });
+    return res.end(await readFile(new URL(file, import.meta.url)));
+  }
+
   if (req.url === '/health') {
     res.writeHead(200, { 'content-type': 'application/json' });
     return res.end(JSON.stringify({ status: 'ok' }));
