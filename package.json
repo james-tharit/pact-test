@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node --test test/consumer.test.js && node --test test/provider.test.js",
-    "start": "node server.js"
+    "test": "node --test test/*.consumer.test.js && node --test test/provider.test.js",
+    "start": "node server.js",
+    "pretest": "rm -rf pacts"
   },
   "keywords": [],
   "author": "",
