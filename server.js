@@ -6,6 +6,11 @@ const products = new Map([
 ]);
 
 export const server = createServer((req, res) => {
+  if (req.url === '/health') {
+    res.writeHead(200, { 'content-type': 'application/json' });
+    return res.end(JSON.stringify({ status: 'ok' }));
+  }
+
   const id = req.url.match(/^\/products\/([^/?]+)$/)?.[1];
   const product = id && products.get(id);
   res.writeHead(product ? 200 : 404, { 'content-type': 'application/json' });

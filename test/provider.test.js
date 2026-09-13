@@ -10,7 +10,10 @@ test('provider honours the ProductWebClient contract', async () => {
       providerBaseUrl: `http://127.0.0.1:${server.address().port}`,
       pactUrls: [new URL('../pacts/ProductWebClient-ProductApi.json', import.meta.url).pathname],
       // ponytail: fixtures are static, so states need no setup — seed here when they don't
-      stateHandlers: { 'a product with id 1 exists': () => {} },
+      stateHandlers: {
+        'a product with id 1 exists': () => {},
+        'healthy server': () => {},
+      },
     }).verifyProvider();
   } finally {
     server.close();

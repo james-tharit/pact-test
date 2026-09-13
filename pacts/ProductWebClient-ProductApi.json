@@ -4,6 +4,40 @@
   },
   "interactions": [
     {
+      "description": "a request",
+      "pending": false,
+      "providerStates": [
+        {
+          "name": "healthy server"
+        }
+      ],
+      "request": {
+        "headers": {
+          "Accept": [
+            "application/json"
+          ]
+        },
+        "method": "GET",
+        "path": "/health"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "status": "ok"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
       "description": "a request for product 1",
       "pending": false,
       "providerStates": [
