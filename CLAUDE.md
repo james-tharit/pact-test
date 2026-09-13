@@ -18,3 +18,21 @@ than reading their output in full.
 Prose is caveman-terse: no preamble, no tool-call narration, no restating what a
 diff already shows. Technical literals — code, paths, symbols, error strings,
 numbers — stay exact.
+
+
+consumer codebase
+1. client.js
+2. index.html
+3. consumer.test.js
+
+
+
+shared location such as bucket
+1. ProductWebClient-...
+
+
+provider codebase
+1. provider.test.js
+2. server.js
+
+** client side assets is host in server.js (share http server with API)
